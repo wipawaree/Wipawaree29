@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basket</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+     .card1 {
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    .card1 h2 { margin: 0; }
+
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .button-list button {
+      width: 100%;
+      padding: 12px 0;
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .button-list button:hover {
+      background-color: #ff66aa;
+    }
+
+  .card2 {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #888;
+  font-size: 24px;
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- การ์ด 1 -->
+    <div class="card card1">
+      <h2>การ์ด 1</h2>
+      <div class="button-list">
+        <button onclick="location.href='index.html'">หน้าแรก</button>
+      <button onclick="location.href='New.html'">สินค้าใหม่</button>
+      <button onclick="location.href='List.html'">รายการสินค้า</button>
+      <button onclick="location.href='Promo.html'">โปรโมชั่น</button>
+      <button onclick="location.href='Order.html'">Order</button>
+      </div>
+    </div>
+
+    <!-- การ์ด 2 เปล่า -->
+    <div class="card card2" id="basketContainer">
+  <div style="
+    margin: auto;
+    text-align: center;
+    color: #888;
+    font-size: 24px;
+  ">
+    ยังไม่ได้เพิ่มสินค้า
+  </div>
+</div>
+    </div>
+  </div>
+
+</body>
+</html>

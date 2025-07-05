@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "TH SarabunPSK", sans-serif;
+      background-color: #fbe6f6;
+    }
+
+    .banner {
+      width: 100vw;
+      height: auto;
+      display: block;
+    }
+
+    .content {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #f8bbd0;
+      padding: 20px;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .sidebar button:hover {
+      background-color: #d81b60;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff0f5;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #e91e63;
+      margin: 20px 0;
+    }
+
+    img.product {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      color: #880e4f;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="BN.png" alt="แบนเนอร์แนะนำตัว" class="banner">
+
+  <div class="content">
+
+    <div class="sidebar">
+      <button onclick="location.href='index.html'">หน้าแรก</button>
+      <button onclick="location.href='New.html'">สินค้าใหม่</button>
+      <button onclick="location.href='List.html'">รายการสินค้า</button>
+      <button onclick="location.href='Promo.html'">โปรโมชั่น</button>
+      <button onclick="location.href='Order.html'">Order</button>
+    </div>
+
+    <div class="main">
+      <h1>Order🛍️</h1>
+
+      <!-- รูปสินค้า -->
+<img id="productImage" class="product" src="" alt="สินค้าที่เลือก" style="display: none; margin: 20px auto;">
+
+      <!-- ข้อความหัวข้อ -->
+      <h3 id="productText">⬇️</h3>
+
+      <!-- ปุ่ม -->
+      <button id="cartButton" onclick="cancelProduct()">ยกเลิกสินค้า</button>
+
+      <!-- ตำแหน่งที่จะแสดงข้อความยกเลิก -->
+      <div id="cancelMessage" style="margin-top: 20px; font-weight: bold; color: green;"></div>
+
+      <script>
+  const image = localStorage.getItem("cartImage");
+  const message = localStorage.getItem("cartMessage");
+
+  const productImg = document.getElementById("productImage");
+  const productText = document.getElementById("productText");
+
+  if (image) {
+    productImg.src = image;
+    productImg.style.display = "block";
+  }
+
+  if (message) {
+    productText.innerText = message;
+  }
+
+  function cancelProduct() {
+    alert("ยืนยันการยกเลิกสินค้า");
+
+    const img = document.getElementById("productImage");
+    const text = document.getElementById("productText");
+
+    if (img) img.remove();
+    if (text) text.remove();
+
+    document.getElementById("cartButton").innerText = "ยกเลิกสินค้าสำเร็จ";
+    document.getElementById("cancelMessage").innerText = "- ขอบคุณที่ใช้บริการ -";
+
+    // ล้างข้อมูลที่เคยเก็บไว้
+    localStorage.removeItem("cartImage");
+    localStorage.removeItem("cartMessage");
+  }
+</script>
+    </div>
+  </div>
+
+  <footer>
+    ติดต่อ: Study Sparle | Email: Study_Sparle@gmail.com | โทร: 065-081-8940
+  </footer>
+
+</body>
+</html>

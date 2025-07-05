@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      font-family: "TH SarabunPSK", sans-serif;
+      height: 100%;
+      background-color: #fce4ec;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background-image: url(Shop.png);
+      background-size: cover;
+      background-position: top center;
+      padding: 60px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+  text-decoration: none;
+  background: #f8bbd0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ec1762;
+
+  display: flex;
+  justify-content: space-between; /* แยกข้อความซ้าย-ขวา */
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  transition: transform 0.2s ease;
+}
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: #880e4f;
+    }
+
+.menu-title {
+  width: 100%;                 /* ✅ กว้างสุดเท่าที่ container อนุญาต */
+  max-width: 500px;            /* ✅ จำกัดความกว้างไม่ให้ใหญ่เกิน */
+  margin: 0 auto 30px;         /* ✅ จัดกลาง + เว้นข้างล่าง */
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ec407a;
+  padding: 10px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+
+
+
+    <div class="container">
+      <h1 class="menu-title">Menu</h1>
+<a class="card" href="page1.html"><span>Index</span><span>&gt;</span></a>
+<a class="card" href="page2.html"><span>List</span><span>&gt;</span></a>
+<a class="card" href="page3.html"><span>เออ 3</span><span>&gt;</span></a>
+<a class="card" href="page4.html"><span>เออ 4</span><span>&gt;</span></a>
+<a class="card" href="page5.html"><span>เออ 5</span><span>&gt;</span></a>
+    </div>
+
+
+  </div>
+
+  <footer>
+    ติดต่อ: Study Sparle | Email: Study_Sparle@gmail.com | โทร: 065-081-8940
+  </footer>
+
+</body>
+</html>

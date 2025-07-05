@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pod2</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card1 {
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    .card1 h2 { margin: 0; }
+
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .button-list button {
+      width: 100%;
+      padding: 12px 0;
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .button-list button:hover {
+      background-color: #ff66aa;
+    }
+
+    .card2 {
+      flex: 3;
+      display: flex;
+      height: 100%;
+    }
+
+    .left {
+      flex: 1;
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left .main-image {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .thumbnails img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 2px solid transparent;
+    }
+
+    .thumbnails img.active {
+      border-color: #007aff;
+    }
+
+    .right {
+      flex: 1.3;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .option-group {
+      margin: 20px 0;
+    }
+
+    .capacity button {
+      padding: 8px 14px;
+      margin-right: 10px;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .capacity button.active {
+      background: black;
+      color: white;
+    }
+
+    .color-button {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .color-button.black { background: rgb(244, 176, 117); }
+    .color-button.white { background: #b8eb97; }
+    .color-button.blue { background: #f1a5ff; }
+    .color-button.purple { background: #f4a7da; }
+    .color-button.pink { background: #d0e486; }
+
+    .buy, .cart {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .buy { background: #ffd600; }
+    .cart { background: #e0e0e0; }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .price-display {
+      text-align: right;
+      font-size: 18px;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .price-display .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    .price-display .new-price {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- การ์ด 1 -->
+    <div class="card card1">
+      <h2>Menu</h2>
+      <div class="button-list">
+        <button onclick="location.href='index.html'">หน้าแรก</button>
+      <button onclick="location.href='New.html'">สินค้าใหม่</button>
+      <button onclick="location.href='List.html'">รายการสินค้า</button>
+      <button onclick="location.href='Promo.html'">โปรโมชั่น</button>
+      <button onclick="location.href='Order.html'">Order</button>
+      </div>
+    </div>
+
+    <!-- การ์ด 2 -->
+    <div class="card card2">
+      <div class="left">
+        <img id="mainImage" class="main-image" src="bk1.png" />
+        <div class="thumbnails">
+          <img src="bk1.png" class="active" onclick="changeImage(this)" />
+          <img src="bk2.png" onclick="changeImage(this)" />
+          <img src="bk3.png" onclick="changeImage(this)" />
+          <img src="bk4.png" onclick="changeImage(this)" />
+          <img src="bk5.png" onclick="changeImage(this)" />
+        </div>
+      </div>
+
+      <div class="right">
+        <h1 id="productTitle">Apple iPhone 16 128GB Black</h1>
+        <p><strong>แบรนด์:</strong> <span id="productBrand">Apple</span></p>
+        <p id="productDesc">
+          iPhone 16 ขอนำตัวควบคุมกล้องให้คุณเข้าถึงฟีเจอร์ได้เร็วขึ้น พร้อมชิป A18<br>
+          - ชิป A18 ที่ล้ำสมัย<br>
+          - หน้าจอ Super Retina XDR ขนาด 6.1 นิ้ว<br>
+          - กล้อง 48MP พร้อมซูมเทเลโฟโต้ 2 เท่า
+        </p>
+
+        <div class="option-group capacity">
+          <strong>Capacity:</strong><br>
+          <button class="active" onclick="selectCapacity(this, 'bk1.png')">Bear</button>
+          <button onclick="selectCapacity(this, 'bk2.png')">Avocado</button>
+          <button onclick="selectCapacity(this, 'bk3.png')">Cat</button>
+          <button onclick="selectCapacity(this, 'bk4.png')">Gummy Bear</button>
+          <button onclick="selectCapacity(this, 'bk5.png')">Bunny</button>
+        </div>
+
+        <div class="option-group">
+          <strong>Color:</strong><br>
+          <span class="color-button black"></span>
+          <span class="color-button white"></span>
+          <span class="color-button blue"></span>
+          <span class="color-button purple"></span>
+          <span class="color-button pink"></span>
+        </div>
+
+        <div class="option-group">
+          <strong>จำนวน:</strong>
+          <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()" />
+        </div>
+
+        <div class="price-display" id="priceDisplay">
+          <strong>ราคา:</strong> <span id="totalPrice">฿5</span>
+        </div>
+
+        <div class="button-group">
+          <button class="cart" id="addToCart">หยิบใส่ตะกร้า</button>
+          <button class="buy">ซื้อสินค้า</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const basePrices = {
+      "bk1.png": 39,
+      "bk2.png": 39,
+      "bk3.png": 39,
+      "bk4.png": 39,
+      "bk5.png": 39,
+    };
+
+    const productInfo = {
+  "bk1.png": {
+    title: "หมีน้อยกับความฝันในป่าใหญ่",
+    brand: "Bear Tale",
+    desc: `🧸 หมีน้อยขี้สงสัยผู้ชอบมองดาว 🌟<br>
+          วันหนึ่งเขาออกเดินทางเพื่อตามหาความฝันที่หายไป...<br>
+          หนังสือนิทานสุดละมุน ที่จะทำให้หัวใจคุณอบอุ่นเหมือนผ้าห่มนุ่ม ๆ`
+  },
+  "bk2.png": {
+    title: "อโวคาโดนักเดินทาง",
+    brand: "Greeny Read",
+    desc: `🥑 อโวคาโดจอมป่วนที่อยากเห็นโลกกว้าง!<br>
+          เขาจะไปทะเล ภูเขา และแม้กระทั่งดวงจันทร์! 🌕<br>
+          เรื่องราวฮา ๆ แฝงข้อคิดสำหรับเด็กและผู้ใหญ่สายเที่ยว`
+  },
+  "bk3.png": {
+    title: "แมวขี้เกียจกับวันที่ต้องตื่นเช้า",
+    brand: "Meow Me Books",
+    desc: `🐱 โอ้ย~ แมวเหมียวอยากนอนทั้งวัน... แต่ดันต้องไปโรงเรียน!<br>
+          มาดูกันว่าเขาจะผ่านภารกิจตื่นเช้าได้ยังไง ☀️<br>
+          นิทานน่ารักปนตลกที่เด็ก ๆ จะหลงรัก`
+  },
+  "bk4.png": {
+    title: "กัมมี่หมีผจญภัยในโลกขนมหวาน",
+    brand: "Sweetland Stories",
+    desc: `🍬 หมีน้อยกัมมี่หลุดเข้าไปในโลกขนมสุดแฟนตาซี!<br>
+          มีทั้งทะเลลูกกวาด ปราสาทช็อกโกแลต และภูเขามาร์ชแมลโลว์ 🍭<br>
+          อ่านแล้วจะยิ้มไม่หยุดแน่นอน~`
+  },
+  "bk5.png": {
+    title: "กระต่ายน้อยผู้หลงทาง",
+    brand: "Fluffy Heart",
+    desc: `🐰 กระต่ายตัวน้อยออกหาของขวัญวันเกิดให้คุณแม่...<br>
+          แต่ดันหลงทางกลางป่า! จะมีใครช่วยเขาไหมนะ? 🌲<br>
+          นิทานอ่อนโยนที่เต็มไปด้วยความรักและความอบอุ่น`
+  }
+};
+
+    
+    function updatePrice() {
+      const qty = parseInt(document.getElementById('quantity').value) || 1;
+      const currentImg = document.getElementById('mainImage').src.split('/').pop();
+      const pricePerUnit = basePrices[currentImg] || 5;
+      const total = qty * pricePerUnit;
+      const priceDisplay = document.getElementById('priceDisplay');
+
+      if (currentImg === "cl000.png") {
+        const originalPrice = 10 * qty;
+        priceDisplay.innerHTML = `
+          <strong>ราคา:</strong> 
+          <span class="new-price">฿${total.toLocaleString()}</span>
+          <span class="old-price">฿${originalPrice.toLocaleString()}</span>
+        `;
+      } else {
+        priceDisplay.innerHTML = `
+          <strong>ราคา:</strong> 
+          <span id="totalPrice">฿${total.toLocaleString()}</span>
+        `;
+      }
+    }
+
+    function selectCapacity(btn, imageName) {
+      document.querySelectorAll('.capacity button').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('mainImage').src = imageName;
+      updateActiveThumbnail(imageName);
+      updateProductInfo(imageName);
+      updatePrice();
+    }
+
+    function changeImage(img) {
+      const imageName = img.src.split('/').pop();
+      document.getElementById('mainImage').src = imageName;
+      updateActiveThumbnail(imageName);
+      document.querySelectorAll('.capacity button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(imageName.split('.')[0].replace("cl", "")) || imageName === "cl000.png" && btn.textContent === "Set");
+      });
+      updateProductInfo(imageName);
+      updatePrice();
+    }
+
+    function updateActiveThumbnail(imageName) {
+      document.querySelectorAll('.thumbnails img').forEach(img => {
+        img.classList.toggle('active', img.src.includes(imageName));
+      });
+    }
+
+    function updateProductInfo(imageName) {
+      const info = productInfo[imageName];
+      if (!info) return;
+      document.getElementById("productTitle").innerHTML = info.title;
+      document.getElementById("productBrand").innerHTML = info.brand;
+      document.getElementById("productDesc").innerHTML = info.desc;
+    }
+
+    updatePrice();
+
+    // ฟังก์ชันแจ้งเตือนเมื่อกด "หยิบใส่ตะกร้า"
+    document.getElementById("addToCart").addEventListener("click", function () {
+      const currentImg = document.getElementById("mainImage").src.split('/').pop();
+      const labelMap = {
+        "bk1.png": "Brown",
+        "bk2.png": "Green",
+        "bk3.png": "Purple",
+        "bk4.png": "Pink",
+        "bk5.png": "Yello"
+      };
+      const productLabel = labelMap[currentImg] || "สินค้านี้";
+      alert(`หยิบ ${productLabel} ใส่ในตะกร้าแล้ว`);
+    });
+  </script>
+</body>
+</html>

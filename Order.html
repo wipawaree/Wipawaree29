@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "TH SarabunPSK", sans-serif;
+      background-color: #fbe6f6;
+    }
+
+    .banner {
+      width: 100vw;
+      height: auto;
+      display: block;
+    }
+
+    .content {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* การ์ดเมนูซ้าย */
+    .sidebar-card {
+      background: #f8bbd0;
+      width: 180px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      height: fit-content;
+      /* เส้นขอบสีแดงถูกลบออกแล้ว */
+    }
+
+    .sidebar-card button {
+      font-size: 16px;
+      padding: 10px 0;
+      margin-bottom: 10px;
+      background-color: #e91e63;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar-card button:hover {
+      background-color: #d81b60;
+    }
+
+    /* เนื้อหาหลัก */
+    .main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff0f5;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    img.product {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    button#cartButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e91e63;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button#cartButton:hover {
+      background-color: #c2185b;
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      color: #880e4f;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="BN.png" alt="แบนเนอร์แนะนำตัว" class="banner" />
+
+  <div class="content">
+
+    <!-- การ์ดเมนูด้านซ้าย -->
+    <div class="sidebar-card">
+      <button onclick="location.href='index.html'">หน้าแรก</button>
+      <button onclick="location.href='New.html'">สินค้าใหม่</button>
+      <button onclick="location.href='List.html'">รายการสินค้า</button>
+      <button onclick="location.href='Promo.html'">โปรโมชั่น</button>
+      <button onclick="location.href='Order.html'">Order</button>
+    </div>
+
+    <!-- ส่วนแสดงสินค้า -->
+    <div class="main">
+      <h1>Order 🛍️</h1>
+
+      <!-- รูปสินค้า -->
+      <img id="productImage" class="product" src="" alt="สินค้าที่เลือก" style="display: none;" />
+
+      <!-- ข้อความหัวข้อ -->
+      <h3 id="productText">⬇️</h3>
+
+      <!-- ปุ่ม -->
+      <button id="cartButton" onclick="cancelProduct()">ยกเลิกสินค้า</button>
+
+      <!-- ข้อความยืนยันการยกเลิก -->
+      <div id="cancelMessage" style="margin-top: 20px; font-weight: bold; color: green;"></div>
+    </div>
+  </div>
+
+  <footer>
+    ติดต่อ: Study Sparle | Email: Study_Sparle@gmail.com | โทร: 065-081-8940
+  </footer>
+
+  <script>
+    const image = localStorage.getItem("cartImage");
+    const message = localStorage.getItem("cartMessage");
+
+    const productImg = document.getElementById("productImage");
+    const productText = document.getElementById("productText");
+
+    if (image) {
+      productImg.src = image;
+      productImg.style.display = "block";
+    }
+
+    if (message) {
+      productText.innerText = message;
+    }
+
+    function cancelProduct() {
+      alert("ยืนยันการยกเลิกสินค้า");
+
+      const img = document.getElementById("productImage");
+      const text = document.getElementById("productText");
+
+      if (img) img.remove();
+      if (text) text.remove();
+
+      document.getElementById("cartButton").innerText = "ยกเลิกสินค้าสำเร็จ";
+      document.getElementById("cancelMessage").innerText = "- ขอบคุณที่ใช้บริการ -";
+
+      localStorage.removeItem("cartImage");
+      localStorage.removeItem("cartMessage");
+    }
+  </script>
+
+</body>
+</html>

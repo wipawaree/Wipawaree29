@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>หน้าแรก</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "TH SarabunPSK", sans-serif;
+      background-color: #fbe6f6;
+    }
+
+    .banner {
+      width: 100vw;
+      height: auto;
+      display: block;
+    }
+
+    .content {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card1 {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .button-list button {
+      width: 100%;
+      padding: 12px 0;
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .button-list button:hover {
+      background-color: #ff66aa;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #e91e63;
+      margin: 20px 0;
+    }
+
+    img.profile {
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      color: #880e4f;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="BN.png" alt="แบนเนอร์แนะนำตัว" class="banner">
+
+  <div class="content">
+    <!-- แถบเมนูซ้าย -->
+    <div class="card1">
+      <h2>เมนู</h2>
+      <div class="button-list">
+        <button onclick="location.href='index.html'">หน้าแรก</button>
+        <button onclick="location.href='New.html'">สินค้าใหม่</button>
+        <button onclick="location.href='List.html'">รายการสินค้า</button>
+        <button onclick="location.href='Promo.html'">โปรโมชั่น</button>
+        <button onclick="location.href='Order.html'">Order</button>
+      </div>
+    </div>
+
+    <!-- เนื้อหาหลัก -->
+    <div class="main">
+      <h1>ประวัติร้าน Study Sparkle</h1>
+      <img src="Shop.png" alt="สมุด" style="width: 500px; height: auto;">
+      <h4 style="text-align: left; margin-left: 20px;">ชื่อร้าน: <span style="color: rgb(93, 92, 92);">Study Sparkle</span></h4><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">สโลแกน: <span style="color: rgb(93, 92, 92);">เปล่งประกายทุกการเรียนรู้ ด้วยเครื่องเขียนคุณภาพ</span></h4><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">ความเป็นมา:</h4>
+      <p style="text-align: left; padding-left: 60px;">ร้าน Study Sparkle ก่อตั้งขึ้นในปี พ.ศ. 2563 โดยกลุ่มคนรุ่นใหม่ที่มีความหลงใหลในอุปกรณ์เครื่องเขียน และเชื่อว่าการเรียนรู้จะมีสีสันมากขึ้น</p>
+      <p style="text-align: left; padding-left: 20px;">เมื่อมีเครื่องมือที่เหมาะสม ร้านเริ่มต้นจากร้านเล็ก ๆ ออนไลน์ที่จำหน่ายปากกา สมุด และของตกแต่งโต๊ะเรียนน่ารัก ๆ ผ่านช่องทางโซเชียลมีเดีย</p><br><br>
+      <p style="text-align: left; padding-left: 20px;">หลังจากได้รับกระแสตอบรับที่ดีจากลูกค้าในกลุ่มนักเรียน นักศึกษา และคนทำงานสายครีเอทีฟ ร้านจึงขยายเป็นหน้าร้านจริงภายใต้ชื่อ “Study Sparkle” </p>
+      <p style="text-align: left; padding-left: 20px;">ที่หมายถึงการทำให้การเรียนและการทำงานมีความเปล่งประกาย สดใส สนุก และมีแรงบันดาลใจ</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">วิสัยทัศน์:</h4>
+      <p style="text-align: left; padding-left: 60px;">เป็นร้านเครื่องเขียนที่สร้างแรงบันดาลใจและเติมความสุขให้กับทุกช่วงเวลาของการเรียนรู้</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">พันธกิจ:</h4>
+      <p style="text-align: left; padding-left: 60px;">• คัดสรรอุปกรณ์เครื่องเขียนคุณภาพดี มีดีไซน์หลากหลาย</p>
+      <p style="text-align: left; padding-left: 60px;">• ให้บริการลูกค้าอย่างจริงใจ เป็นกันเอง</p>
+      <p style="text-align: left; padding-left: 60px;">• ส่งเสริมไอเดียสร้างสรรค์และพัฒนาการเรียนรู้ผ่านสินค้าและกิจกรรม</p>
+      <p style="text-align: left; padding-left: 60px;">• ารเรียนรู้</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">สินค้าที่จำหน่าย:</h4>
+      <p style="text-align: left; padding-left: 60px;">• ปากกาไฮไลต์</p>
+      <p style="text-align: left; padding-left: 60px;">• สมุดจด</p>
+      <p style="text-align: left; padding-left: 60px;">• สีไม้</p>
+      <p style="text-align: left; padding-left: 60px;">• สีน้ำ</p>
+      <p style="text-align: left; padding-left: 60px;">• ปากกา</p>
+      <p style="text-align: left; padding-left: 60px;">• ยางลบ</p>
+      <p style="text-align: left; padding-left: 60px;">• กบเหลา</p>
+      <p style="text-align: left; padding-left: 60px;">• ไม้บรรทัด</p>
+      <p style="text-align: left; padding-left: 60px;">• ปากกาลบคำผิด</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">กลุ่มเป้าหมาย:</h4>
+      <p style="text-align: left; padding-left: 60px;">นักเรียน นักศึกษา ครู อาจารย์ และคนทำงานที่ชื่นชอบเครื่องเขียนคุณภาพดีและดีไซน์น่ารัก</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">ช่องทางการจัดจำหน่าย:</h4>
+      <p style="text-align: left; padding-left: 60px;">• หน้าร้าน (ในห้างหรือคอมมูนิตี้มอลล์)</p>
+      <p style="text-align: left; padding-left: 60px;">• เว็บไซต์และโซเชียลมีเดีย: Facebook, Instagram, LINE Shop, Shopee</p><br><br>
+      <h4 style="text-align: left; margin-left: 20px;">จุดเด่นของร้าน:</h4>
+      <p style="text-align: left; padding-left: 60px;">• สินค้าคุณภาพในราคาจับต้องได้</p>
+      <p style="text-align: left; padding-left: 60px;">• บรรยากาศร้านอบอุ่น น่ารัก และเป็นมิตร</p>
+      <p style="text-align: left; padding-left: 60px;">• อัปเดตสินค้านำเข้าจากญี่ปุ่น เกาหลี และยุโรปอยู่เสมอ</p>
+      <p style="text-align: left; padding-left: 60px;">• จัดกิจกรรมเวิร์กช็อปและแจกของขวัญประจำเดือน</p>
+    </div>
+  </div>
+
+  <footer>
+    ติดต่อ: Study Sparle | Email: Study_Sparle@gmail.com | โทร: 065-081-8940
+  </footer>
+
+</body>
+</html>
